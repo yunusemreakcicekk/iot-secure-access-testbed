@@ -1,0 +1,150 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+
+:root {
+  --bg-color: #05070a;
+  --surface-color: #0d1117;
+  --surface-hover: #161b22;
+  --border-color: #30363d;
+  
+  --red: #ff3e3e;
+  --red-glow: rgba(255, 62, 62, 0.3);
+  
+  --green: #00ff9d;
+  --green-glow: rgba(0, 255, 157, 0.3);
+  
+  --blue: #00d4ff;
+  --blue-glow: rgba(0, 212, 255, 0.3);
+  
+  --amber: #ffaa00;
+  --amber-glow: rgba(255, 170, 0, 0.3);
+  
+  --text-primary: #e6edf3;
+  --text-secondary: #8b949e;
+  --text-muted: #484f58;
+  
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-mono: 'JetBrains+Mono', 'Fira Code', monospace;
+  
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  
+  --transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-primary);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+  min-height: 100vh;
+}
+
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  background: none;
+  transition: var(--transition);
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul {
+  list-style: none;
+}
+
+/* Scrollbar Styles */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-color);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border-color);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text-muted);
+}
+
+/* Utility Classes */
+.glow-red { text-shadow: 0 0 10px var(--red-glow); color: var(--red); }
+.glow-green { text-shadow: 0 0 10px var(--green-glow); color: var(--green); }
+.glow-blue { text-shadow: 0 0 10px var(--blue-glow); color: var(--blue); }
+.glow-amber { text-shadow: 0 0 10px var(--amber-glow); color: var(--amber); }
+
+.border-glow-red { border-color: var(--red); box-shadow: 0 0 15px var(--red-glow); }
+.border-glow-green { border-color: var(--green); box-shadow: 0 0 15px var(--green-glow); }
+.border-glow-blue { border-color: var(--blue); box-shadow: 0 0 15px var(--blue-glow); }
+
+.mono { font-family: var(--font-mono); }
+
+/* Animations */
+@keyframes pulse {
+  0% { opacity: 1; }
+  50% { opacity: 0.5; }
+  100% { opacity: 1; }
+}
+
+.animate-pulse {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes scan {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(100%); }
+}
+
+.scanline {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(to right, transparent, var(--blue), transparent);
+  opacity: 0.1;
+  pointer-events: none;
+  animation: scan 4s linear infinite;
+}
+
+.glass-card {
+  background: rgba(13, 17, 23, 0.7);
+  backdrop-filter: blur(12px);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  padding: 1.5rem;
+  transition: var(--transition);
+}
+
+.glass-card:hover {
+  border-color: var(--text-muted);
+  background: rgba(13, 17, 23, 0.8);
+}

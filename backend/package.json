@@ -1,0 +1,20 @@
+{
+  "name": "iot-secure-access-backend",
+  "version": "1.0.0",
+  "description": "Node.js backend for the IoT secure access control and attack simulation testbed.",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.6",
+    "dotenv": "^17.3.1",
+    "express": "^5.2.1",
+    "serialport": "^13.0.0",
+    "socket.io": "^4.8.3"
+  }
+}
